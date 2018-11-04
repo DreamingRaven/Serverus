@@ -21,6 +21,16 @@ def argz(argv=None, description=None):
     optional = parser._action_groups.pop() # popping -h off
     required = parser.add_argument_group('required arguments')
 
+    optional.add_argument("-S", "--toStartServer",
+        default=False,
+        action="store_true",
+        help="flag to start web server and its associated components")
+
+    optional.add_argument("-s", "--toStopServer",
+        default=False,
+        action="store_true",
+        help="flag to stop web server and its associated components")
+
     # adding optional params at end again
     parser._action_groups.append(optional) # pushing -h back on with extras
     return vars(parser.parse_args(argv))

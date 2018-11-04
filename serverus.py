@@ -17,7 +17,14 @@ from src.helpers import placeholder
 
 
 def main(args):
-    placeholder()
+
+    if(args["toStartServer"] == True):
+        print("starting server")
+    else:
+        print("skipping server start sequence")
+
+    if(args["toStopServer"] == True):
+        print("stopping server")
 
 
 
