@@ -17,7 +17,6 @@ from src.helpers import placeholder
 
 
 def main(args):
-    print("HELLO WORLD")
     placeholder()
 
 

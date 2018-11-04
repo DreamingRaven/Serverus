@@ -6,7 +6,11 @@
 # @License: Please see LICENSE in project root.
 # @Copyright: George Onoufriou
 
-import argparse, configparser
+
+
+import os, sys, argparse, configparser
+
+
 
 def argz(argv=None, description=None):
     # creating parser object with description
@@ -20,3 +24,23 @@ def argz(argv=None, description=None):
     # adding optional params at end again
     parser._action_groups.append(optional) # pushing -h back on with extras
     return vars(parser.parse_args(argv))
+
+
+
+def getDefaultArg(conf, section, key, fallbackVal, isBool=False):
+
+    #TODO: this is very awkward because it might be called where conf is None
+    try:
+        val = ""
+        if(isBool == False):
+            val = conf[str(section)][str(key)]
+        else:
+            val = conf.getboolean(str(section), str(key))
+
+        if(val == ""):
+            return fallbackVal
+        else:
+            return val
+
+    except:
+        return fallbackVal
