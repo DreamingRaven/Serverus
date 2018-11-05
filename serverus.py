@@ -3,7 +3,7 @@
 # @Author: George Onoufriou <georgeraven>
 # @Date:   2018-11-04
 # @Filename: serverus.py
-# @Last modified by:   georgeraven
+# @Last modified by:   archer
 # @Last modified time: 2018-11-05
 # @License: Please see LICENSE in project root.
 # @Copyright: George Onoufriou
@@ -23,13 +23,13 @@ def main(args):
 
     if(args["toStartServer"] == True):
         print("starting server...")
-        srv.startServer()
+        srv.start()
     else:
         print("skipping server start sequence")
 
     if(args["toStopServer"] == True):
         print("stopping server...")
-        srv.stopServer()
+        srv.stop()
 
 
 
