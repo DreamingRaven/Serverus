@@ -13,19 +13,27 @@ class serverz():
 
 
     def __init__(self):
-        None
+        from http.server import HTTPServer, BaseHTTPRequestHandler
+        import ssl
 
 
 
     def startServer(self):
-        None
+        httpd = self.HTTPServer(('localhost', 4443), self.BaseHTTPRequestHandler)
+        httpd.socket = self.ssl.wrap_socket(
+            httpd.socket,
+            keyfile="",
+            certfile="",
+            server_side=True
+        )
+        raise NotImplementedError
 
 
 
     def stopServer(self):
-        None
+        raise NotImplementedError
 
 
 
     def getServerState(self):
-        None
+        raise NotImplementedError

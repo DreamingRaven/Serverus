@@ -19,13 +19,17 @@ from src.helperz import placeholder
 
 def main(args):
 
+    srv = serverz()
+
     if(args["toStartServer"] == True):
-        print("starting server")
+        print("starting server...")
+        srv.startServer()
     else:
         print("skipping server start sequence")
 
     if(args["toStopServer"] == True):
-        print("stopping server")
+        print("stopping server...")
+        srv.stopServer()
 
 
 
