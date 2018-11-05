@@ -6,7 +6,26 @@
 # @License: Please see LICENSE in project root.
 # @Copyright: George Onoufriou
 
+
+
 class serverz():
 
+
+
     def __init__(self):
+        None
+
+
+
+    def startServer(self):
+        None
+
+
+
+    def stopServer(self):
+        None
+
+
+
+    def getServerState(self):
         None
