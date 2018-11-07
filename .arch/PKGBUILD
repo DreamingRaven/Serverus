@@ -1,0 +1,50 @@
+# Maintainer: George Raven <GeorgeRavenCommunity AT outlook dot com>
+pkgname=python-serverus-git
+pkgsrcname="serverus"
+pkgver=0.0.1.r1
+pkgrel=1
+pkgdesc="Quick python server and library of usefull handlers"
+arch=('any')
+
+# source code url
+url="https://github.com/DreamingRaven/Serverus"
+# set what branch you would like to pull from
+branch="master"
+
+license=('MIT') # MIT is a special case store a copy in /usr/share/pkgname
+groups=()
+depends=('git' 'python-setuptools' 'mongodb' 'python' 'python-pymongo' 'python-pandas' 'python-numpy')
+makedepends=() # vcs usually includes 'git' etc here but git already in depends so uneccessary
+provides=("${pkgsrcname}")
+conflicts=("${pkgsrcname}")
+replaces=()
+backup=()
+options=()
+install=
+source=("${pkgsrcname}"'::git+'"${url}"'#branch='"${branch}")
+noextract=()
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/${pkgsrcname}"
+	printf "%s" "$(git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+}
+
+prepare() {
+	cd "$srcdir/${pkgsrcname}"
+	git checkout ${branch} # get off of makepkg branch
+}
+
+build() {
+	cd "$srcdir/${pkgsrcname}"
+}
+
+check() {
+	cd "$srcdir/${pkgsrcname}"
+}
+
+package() {
+	cd "$srcdir/${pkgsrcname}"
+	python3 setup.py install --prefix=/usr --root="$pkgdir/" --optimize=1
+	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

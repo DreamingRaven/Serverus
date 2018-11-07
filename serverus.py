@@ -3,8 +3,8 @@
 # @Author: George Onoufriou <georgeraven>
 # @Date:   2018-11-04
 # @Filename: serverus.py
-# @Last modified by:   georgeraven
-# @Last modified time: 2018-11-04
+# @Last modified by:   archer
+# @Last modified time: 2018-11-05
 # @License: Please see LICENSE in project root.
 # @Copyright: George Onoufriou
 
@@ -12,13 +12,24 @@
 
 import os, sys
 from src.argz import argz
-from src.helpers import placeholder
+from src.serverz import serverz
+from src.helperz import placeholder
 
 
 
 def main(args):
-    print("HELLO WORLD")
-    placeholder()
+
+    srv = serverz()
+
+    if(args["toStartServer"] == True):
+        print("starting server...")
+        srv.start()
+    else:
+        print("skipping server start sequence")
+
+    if(args["toStopServer"] == True):
+        print("stopping server...")
+        srv.stop()
 
 
 
