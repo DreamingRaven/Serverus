@@ -1,8 +1,8 @@
 # @Author: George Onoufriou <georgeraven>
 # @Date:   2018-11-05
 # @Filename: serverz.py
-# @Last modified by:   georgeraven
-# @Last modified time: 2018-11-05
+# @Last modified by:   archer
+# @Last modified time: 2018-11-07
 # @License: Please see LICENSE in project root.
 # @Copyright: George Onoufriou
 
@@ -23,6 +23,7 @@ class serverz():
 
 
     def start(self):
+        raise NotImplementedError
         httpd = self.HTTPServer(('localhost', 4443), self.BaseHTTPRequestHandler)
         httpd.socket = self.ssl.wrap_socket(
             httpd.socket,
@@ -30,7 +31,6 @@ class serverz():
             certfile="",
             server_side=True
         )
-        raise NotImplementedError
 
 
 
