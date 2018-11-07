@@ -1,7 +1,7 @@
 # Maintainer: George Raven <GeorgeRavenCommunity AT outlook dot com>
 pkgname=python-serverus-git
 pkgsrcname="serverus"
-pkgver=0.9.1.r13.4c6bd6b
+pkgver=0.0.1.r1
 pkgrel=1
 pkgdesc="Quick python server and library of usefull handlers"
 arch=('any')
