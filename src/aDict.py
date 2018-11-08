@@ -10,8 +10,8 @@ from collections.abc import MutableMapping # abstract base classes (abc)
 
 
 
-# homemade dictionary that can be expanded to include more complex functionality
-class DictUtil(MutableMapping):
+# abstract dict = ADict, has all main dict functions + key safe + expandable
+class ADict(MutableMapping):
 
 
 
